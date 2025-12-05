@@ -250,3 +250,44 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+#topbar .container {
+    display: flex;
+    flex-direction: column; /* stack the lines */
+    justify-content: center; /* vertical centering */
+    align-items: center; /* horizontal centering */
+    text-align: center; /* center text inside */
+    height: 100%; /* ensure full height */
+}
+
+.top-bar-text {
+    margin: 0;
+    text-align: center;
+}
+.main-menu ul li {
+    position: relative;
+}
+
+.main-menu ul li .dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #111;
+    border: 1px solid #a38b2d;
+    z-index: 1000;
+}
+
+.main-menu ul li:hover .dropdown {
+    display: block; /* shows on hover */
+}
+
+.main-menu ul li .dropdown li a {
+    display: block;
+    padding: 10px 15px;
+    color: #e0d6b5;
+}
+
+.main-menu ul li .dropdown li a:hover {
+    background: #222;
+    color: #d4c27a;
+}
