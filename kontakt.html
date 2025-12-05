@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lihtne Esileht</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="contact">
+
+    <!-- Top Bar Section -->
+    <div id="topbar" class="fixed-top">
+        <div class="container">
+            <h4 class="top-bar-text">
+                <p>֍ SAATMISE TASU EESTIS al. 2,90 €    ֍    TASUTA SAATMINE OSTUDELE ALATES 50 € ֍</p>
+            </h4>
+            <p class="top-bar-text">SOOME SAADAME KAUPA ITELLA SmartPost "posti" PAKIAUTOMAATI ֍ MAKSEVALIKUS SOOME PANGALINGID</p>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container top-header">
+            <a href="index.html" class="logo">
+                <img src="images/logo-arts.png" alt="Company Logo">
+            </a>
+            <nav class="top-menu">
+                <ul>
+                    <li><a href="minu-konto.html">Logi sisse</a></li>
+                    <li><a href="transport.html">Transport</a></li>
+                    <li><a href="kkk.html">KKK</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Hamburger Icon for Mobile Menu -->
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Main Menu -->
+        <nav class="main-menu">
+            <ul class="menu">
+                <li><a href="index.html">Avaleht</a></li>
+                <li>
+                    <a href="pood.html" class="dropdown-toggle">
+                        <span class="submenu-toggle">E-pood +</span>
+                    </a>
+                    <ul class="dropdown">
+                        <li><a href="puidust-tooted.html">Puidust tooted</a></li>
+                        <li><a href="tellimisinfo.html">Tellimisinfo</a></li>
+                        <li><a href="kkk.html">KKK</a></li>
+                        <li><a href="minu-konto.html">Logi sisse</a></li>
+                    </ul>
+                </li>
+                <li><a href="tellimisinfo.html">Tellimisinfo</a></li>
+                <li><a href="edasimuuja.html">Edasimüüjale</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+
+<div class="main-container">
+    <!-- Login Section -->
+    <section class="content-section login-page">
+        <div class="login-container">
+            <h2>Sisselogimine</h2>
+            <form action="#" method="POST">
+                <div class="form-group">
+                    <label for="username">Kasutajanimi</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Salasõna</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <button type="submit">Logi sisse</button>
+            </form>
+            <p>Unustasid salasõna? <a href="#">Taasta siin</a></p>
+        </div>
+    </section>
+</div>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-section large">
+                <h3>Meist</h3>
+                <p>Pakume lisaks omatoodangule erinevate Eesti käsitöömeistrite, aga ka imporditud käsitöötooteid, meeneid, ehteid ja kingitusi. Tooted enam kui 30 erinevalt pakkujalt Eestist ja välismaalt.</p>
+            </div>
+            <div class="footer-section small">
+                <h3>Info</h3>
+                <ul>
+                    <li><a href="#">Edasimüüjale</a></li>
+                    <li><a href="#">Pood</a></li>
+                    <li><a href="#">Tellimisinfo</a></li>
+                    <li><a href="#">Transport</a></li>
+                </ul>
+            </div>
+            <div class="footer-section small">
+                <h3>Võta ühendust</h3>
+                <ul>
+                    <li>E-post: info@company.com</li>
+                    <li>Telefon: (123) 456-7890</li>
+                    <li>Aadress: 1234 Street, City, Country</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Ettevõte. Kõik õigused kaitstud.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Code -->
+    <script>
+        // Toggle the main menu
+        function toggleMenu() {
+            const menu = document.querySelector('.main-menu');
+            menu.classList.toggle('menu-active');
+        }
+
+        // Toggle the dropdown submenus
+        function toggleDropdown(event) {
+            event.preventDefault();
+            const dropdown = event.target.closest('li').querySelector('.dropdown');
+            const toggleIcon = event.target;
+            
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+                toggleIcon.textContent = '+';
+            } else {
+                dropdown.style.display = 'block';
+                toggleIcon.textContent = '–';
+            }
+        }
+    </script>
+
+</body>
+</html>

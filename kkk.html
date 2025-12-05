@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="et">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Elden Lore KKK</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="faq">
+        <!-- Top Bar Section -->
+        <div id="topbar" class="fixed-top">
+            <div class="container">
+                <h4 class="top-bar-text">
+                    <p>
+                        ֍ Tarnished’ile Runede saatmine alates 2,90 ֍ Tasuta
+                        saatmine ostudele üle 50 Rune ֍
+                    </p>
+                </h4>
+                <p class="top-bar-text">
+                    Kaubad liiguvad ka üle mere – Itella SmartPost
+                    pakiautomaati. Maksmiseks saad kasutada ka Soome pangalinke.
+                </p>
+            </div>
+        </div>
+
+        <!-- Header Section -->
+        <header>
+            <div class="container top-header">
+                <a href="index.html" class="logo">
+                    <img
+                        src="images/elden_ring_logo_icon_249686.png"
+                        alt="Elden Ring Logo"
+                    />
+                </a>
+                <nav class="top-menu">
+                    <ul>
+                        <li>
+                            <a href="minu-konto.html">Logi sisse Tarnished</a>
+                        </li>
+                        <li>
+                            <a href="transport.html">Reis läbi Lands Between</a>
+                        </li>
+                        <li><a href="kkk.html">Lore KKK</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Hamburger Icon for Mobile Menu -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <!-- Main Menu -->
+            <nav class="main-menu">
+                <ul class="menu">
+                    <li><a href="index.html">Avaleht</a></li>
+                    <li>
+                        <a href="pood.html" class="dropdown-toggle">
+                            <span class="submenu-toggle">Elden Shop +</span>
+                        </a>
+                        <ul class="dropdown">
+                            <li>
+                                <a href="tootekategooria.html"
+                                    >Relvad ja Talismanid</a
+                                >
+                            </li>
+                            <li><a href="tellimisinfo.html">Runede info</a></li>
+                            <li>
+                                <a href="kkk.html">Küsimused Tarnished’ile</a>
+                            </li>
+                            <li>
+                                <a href="minu-konto.html"
+                                    >Logi sisse – vali oma teekond</a
+                                >
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="tellimisinfo.html">Runede info</a></li>
+                    <li><a href="edasimuuja.html">Merchant Kale</a></li>
+                    <li>
+                        <a href="kontakt.html">Kontakt – Roundtable Hold</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="main-container">
+            <!-- Content Section -->
+            <section class="content-section">
+                <div class="main-content">
+                    <div class="faq-container">
+                        <h2>Küsimused, mida Tarnished tihti küsivad</h2>
+                        <p>
+                            Kui sul tekib lisaküsimusi, võta ühendust Roundtable
+                            Hold’i kaudu või saada kiri meie e-postile.
+                        </p>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">
+                                1. Kuidas liiguvad kaubad läbi Lands Between?
+                            </h3>
+                            <p class="faq-answer">
+                                Runede eest saadud relvad ja talismanid
+                                toimetatakse kohale karavanide ja
+                                pakiautomaatide kaudu – Itella, Omniva või DPD
+                                kullerid.
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">
+                                2. Kas kaubad jõuavad ka kaugematesse
+                                riikidesse?
+                            </h3>
+                            <p class="faq-answer">
+                                Jah, kaup liigub ka Soome, Lätti ja Leetu ning
+                                kaugemalegi. Tarnished võib valida sobiva
+                                pakiautomaadi või kullerteenuse.
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">
+                                3. Kas saadate ka üle maailma?
+                            </h3>
+                            <p class="faq-answer">
+                                Kaubad liiguvad pea kõikidesse riikidesse.
+                                Saatmiskulu sõltub pakendi kaalust, valitud
+                                teekonnast ja sihtkohast.
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">
+                                4. Millised on saatmise hinnad?
+                            </h3>
+                            <p class="faq-answer">
+                                Runede hinnale lisandub maks vastavalt riigi
+                                seadustele. Eestis lisandub käibemaks 22%.
+                            </p>
+                        </div>
+
+                        <div class="faq-item">
+                            <h3 class="faq-question">
+                                5. Kuidas Tarnished saab oma tellimuse kätte?
+                            </h3>
+                            <p class="faq-answer">
+                                Vali relv või talisman, lisa see Runekorvi, vali
+                                sihtkoht ning tasu runedega. Peale tellimuse
+                                kinnitamist saadetakse sulle jälgimiskood, et
+                                näha oma kauba teekonda läbi Lands Between.
+                            </p>
+                        </div>
+                    </div>
+                    <script>
+                        const questions =
+                            document.querySelectorAll(".faq-question");
+                        questions.forEach((question) => {
+                            question.addEventListener("click", () => {
+                                const answer = question.nextElementSibling;
+                                answer.style.display =
+                                    answer.style.display === "block"
+                                        ? "none"
+                                        : "block";
+                            });
+                        });
+                    </script>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            <div class="container footer-content">
+                <div class="footer-section large">
+                    <h3>Meist</h3>
+                    <p>
+                        Pakume Tarnished’ile relvi, talismane ja teadmisi, mis
+                        pärinevad Lands Between’ist. Kaubad erinevatelt
+                        kaupmeestelt ja seiklejailt üle kogu maailma.
+                    </p>
+                </div>
+                <div class="footer-section small">
+                    <h3>Info</h3>
+                    <ul>
+                        <li><a href="#">Merchant Kale</a></li>
+                        <li><a href="#">Elden Shop</a></li>
+                        <li><a href="#">Runede info</a></li>
+                        <li><a href="#">Reis läbi Lands Between</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section small">
+                    <h3>Võta ühendust</h3>
+                    <ul>
+                        <li>E-post: info@eldenring.com</li>
+                        <li>Telefon: (123) 456-7890</li>
+                        <li>Aadress: Roundtable Hold, Lands Between</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Elden Ring. Kõik õigused kaitstud.</p>
+            </div>
+        </footer>
+
+        <!-- JavaScript Code -->
+        <script>
+            // Toggle the main menu
+            function toggleMenu() {
+                const menu = document.querySelector(".main-menu");
+                menu.classList.toggle("menu-active");
+            }
+
+            // Toggle the dropdown submenus
+            function toggleDropdown(event) {
+                event.preventDefault();
+                const dropdown = event.target
+                    .closest("li")
+                    .querySelector(".dropdown");
+                const toggleIcon = event.target;
+
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                    toggleIcon.textContent = "+";
+                } else {
+                    dropdown.style.display = "block";
+                    toggleIcon.textContent = "–";
+                }
+            }
+        </script>
+    </body>
+</html>
