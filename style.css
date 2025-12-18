@@ -15,9 +15,25 @@ body {
 
 /* Header */
 header {
-    background-color: #1a1a1a;
-    border-bottom: 2px solid #a38b2d; /* Gold accent */
+  background-color: #0d0d0d;
+  border-bottom: 2px solid #a38b2d;
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
 }
+
+header .logo {
+  flex: 0 0 auto; /* logo ei venita */
+}
+
+header .topbar-texts {
+  flex: 1;              /* võtab ülejäänud ruumi */
+  text-align: center;   /* joonda tekst keskele */
+  color: #e0d6b5;
+}
+
+
+
 
 /* Headings */
 h1,
@@ -144,34 +160,38 @@ a:hover {
 
 /* Four Sections */
 .four-sections {
-    display: flex;
-    flex-wrap: wrap; /* Prevent horizontal overflow */
-    max-width: 100%;
-    padding: 60px 5%;
-    gap: 20px;
-    box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;   /* joonda horisontaalselt keskele */
+  align-items: center;       /* joonda vertikaalselt keskele */
+  gap: 20px;
+  padding: 60px 5%;
+  box-sizing: border-box;
+  text-align: center;        /* tekst keskele */
 }
+
 .section {
-    flex: 1;
-    min-width: 200px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #e0d6b5;
-    border: 2px solid #a38b2d;
-    border-radius: 5px;
-    background-color: #1a1a1a;
-    text-shadow: 2px 2px 4px #000;
+  flex: 0 1 220px;           /* fikseeri suurus, et plokid oleksid võrdsed */
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #e0d6b5;
+  border: 2px solid #a38b2d;
+  border-radius: 5px;
+  background-color: #1a1a1a;
+  background-size: cover;
+  background-position: center;
+  text-shadow: 2px 2px 4px #000;
 }
 .section h2 {
-    margin: 0;
-    font-size: 1.5em;
-    text-align: center;
-    padding: 7px 10px;
-    background-color: rgba(163, 139, 45, 0.65);
-    border-radius: 5px;
+  margin: 0;
+  font-size: 1.5em;
+  background-color: rgba(163, 139, 45, 0.65);
+  border-radius: 5px;
+  padding: 7px 10px;
 }
+
 
 /* Product Grid */
 .product-grid {
@@ -290,4 +310,62 @@ footer {
 .main-menu ul li .dropdown li a:hover {
     background: #222;
     color: #d4c27a;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 10px;
+  color: #e0d6b5;
+}
+
+@media (max-width: 800px) {
+  .menu-toggle {
+    display: block;
+  }
+  nav ul {
+    display: none;
+    flex-direction: column;
+    background: #1a1a1a;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 2px solid #a38b2d;
+  }
+  nav ul.active {
+    display: flex;
+  }
+  nav ul li {
+    margin: 10px 0;
+    text-align: center;
+   }
+}
+.merchant-image {
+  text-align: center;
+  padding: 40px 20px;
+}
+.merchant-image img {
+  max-width: 100%;
+  height: auto;
+  border: 2px solid #a38b2d;
+  border-radius: 8px;
+}
+.image-caption {
+  margin-top: 10px;
+  font-size: 0.9em;
+  color: #e0d6b5;
+}
+.intro-image img {
+  max-width: 800px;   /* maksimaalne laius */
+  height: auto;       /* hoiab proportsioonid */
+  border-radius: 8px; /* soovi korral ümarad nurgad */
+  border: 2px solid #a38b2d;
+}
+.intro-image {
+  text-align: center;
+  margin: 30px 0;
 }

@@ -6,62 +6,18 @@
     <title>Elden Ring Esileht</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="home">
 
-    <!-- Top Bar Section -->
-    <div id="topbar" class="fixed-top">
-        <div class="container">
-            <h4 class="top-bar-text">
-                <p>Elden Ring on avar tume fantaasia action-RPG, kus Tarnished rändab läbi Shattered Lands Between, et taastada või ümber kujundada Elden Ringi saatus.</p>
-            </h4>
-            <p class="top-bar-text">Elden Ring on karm, kuid hingematvalt kaunis seiklus, kus iga võitlus ja avastus tundub raskelt teenitud hiilguse hetkena.</p>
-        </div>
-    </div>
+    
 
     <!-- Header Section -->
-    <header>
-        <div class="container top-header">
-            <a href="index.html" class="logo">
-                <img src="images/elden_ring_logo_icon_249686.png" alt="Elden Ring Logo">
-            </a>
-            <nav class="top-menu">
-                <ul>
-                    <li><a href="minu-konto.html">Logi sisse Tarnished</a></li>
-                    <li><a href="transport.html">Reis läbi Lands Between</a></li>
-                    <li><a href="kkk.html">Elden Lore KKK</a></li>
-                </ul>
-            </nav>
-        </div>
+    <div id="header"></div>
 
-        <!-- Hamburger Icon for Mobile Menu -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
 
         <!-- Main Menu -->
-        <nav class="main-menu">
-            <ul class="menu">
-                <li><a href="index.html">Avaleht</a></li>
-                <li>
-                    <a href="pood.html" class="dropdown-toggle">
-                        <span class="submenu-toggle">Elden Shop +</span>
-                    </a>
-                    <ul class="dropdown">
-                        <li><a href="tootekategooria.html">Relvad ja Talismanid</a></li>
-                        <li><a href="tellimisinfo.html">Runede kogumise info</a></li>
-                        <li><a href="kkk.html">Küsimused Tarnished’ile</a></li>
-                        <li><a href="minu-konto.html">Logi sisse – vali oma teekond</a></li>
-                    </ul>
-                </li>
-                <li><a href="tellimisinfo.html">Runede info</a></li>
-                <li><a href="edasimuuja.html">Edasimüüjale – Merchant Kale</a></li>
-                <li><a href="kontakt.html">Kontakt – Roundtable Hold</a></li>
-            </ul>
-        </nav>
+        <div id="main-menu"></div>
 
-    </header>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -75,21 +31,21 @@
 
     <!-- Four Sections -->
     <section class="four-sections" id="categories">
-        <a href="tootekategooria.html">
+        <a href="legendaarne_arsenal.html">
             <div class="section" style="background-image: url('images/black_knife_dagger_weapon_elden_ring_wiki_guide_200px.png');">
                 <h2>Legendaarne Arsenal</h2>
             </div>
         </a>
-        <a href="#categories">
+        <a href="talismanid_ja_runed.html">
             <div class="section" style="background-image: url('images/claw_talisman.png');">
                 <h2>Talismanid ja Runed</h2>
             </div>
-        <a href="#categories">
+        <a href="spirit_summons.html">
             <div class="section" style="background-image: url('images/spirit_calling_bell_elden_ring_wiki_guide_200px.png');">
                 <h2>Spirit Summons</h2>
             </div>
         </a>
-        <a href="#categories">
+        <a href="smithing_stones.html">
             <div class="section" style="background-image: url('images/smithing_stone_8_upgrade_material_elden_ring_wiki_guide_200px.png');">
                 <h2>Smithing Stones & Crafting</h2>
             </div>
@@ -121,56 +77,12 @@
 </div>
 
     <!-- Footer Section -->
-    <footer>
-        <div class="container footer-content">
-            <div class="footer-section large">
-                <h3>Meist</h3>
-                <p>Pakume Tarnished’ile relvi, talismane ja teadmisi, mis pärinevad Lands Between’ist. Kaubad erinevatelt kaupmeestelt ja seiklejailt üle kogu maailma.</p>
-            </div>
-            <div class="footer-section small">
-                <h3>Info</h3>
-                <ul>
-                    <li><a href="#">Merchant Kale</a></li>
-                    <li><a href="#">Elden Shop</a></li>
-                    <li><a href="#">Runede info</a></li>
-                    <li><a href="#">Reis läbi Lands Between</a></li>
-                </ul>
-            </div>
-            <div class="footer-section small">
-                <h3>Võta ühendust</h3>
-                <ul>
-                    <li>E-post: info@eldenring.com</li>
-                    <li>Telefon: (123) 456-7890</li>
-                    <li>Aadress: Roundtable Hold, Lands Between</li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Elden Ring. Kõik õigused kaitstud.</p>
-        </div>
-    </footer>
+    <div id="footer"></div>
 
     <!-- JavaScript Code -->
-    <script>
-        function toggleMenu() {
-            const menu = document.querySelector('.main-menu');
-            menu.classList.toggle('menu-active');
-        }
+    <script src="scripts.js"></script>
+    
 
-        function toggleDropdown(event) {
-            event.preventDefault();
-            const dropdown = event.target.closest('li').querySelector('.dropdown');
-            const toggleIcon = event.target;
-
-            if (dropdown.style.display === 'block') {
-                dropdown.style.display = 'none';
-                toggleIcon.textContent = '+';
-            } else {
-                dropdown.style.display = 'block';
-                toggleIcon.textContent = '–';
-            }
-        }
-    </script>
 
 </body>
 </html>
