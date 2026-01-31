@@ -16,21 +16,21 @@ function enableHamburgerMenu() {
 //        answer.style.display === "block" ? "none" : "block"; }); }); }
 
 // Laeb header, main menu ja footer
-fetch("header.html")
+fetch("/header.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("header").innerHTML = data;
     enableHamburgerMenu();
   });
 
-fetch("main_menu.html")
+fetch("/main_menu.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("main-menu").innerHTML = data;
     enableHamburgerMenu();
   });
 
-fetch("footer.html")
+fetch("/footer.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("footer").innerHTML = data;
