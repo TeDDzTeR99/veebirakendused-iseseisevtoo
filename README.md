@@ -39,11 +39,12 @@ Runner on offline.
 Konteineri nimi `nging-php-fm` on valesti seadistatud. Peame muutma selle ümber `Static_site`.
 
 >Probleem 4:\
-Static_site annab probleemi serveri lubadega.
+Static_site annab probleemi, et git_ile ei meeldi, et teda üritatakse tõmmata serverisse.
 >>Lahendus:
-
+Seadistasime git-i. 
 
 ## Deploy testimise tulemus
 
-`Readme update` esimene deploy failis. 
-`Readme update` teine deploy
+`Readme update` esimene deploy failis.\
+`Readme update` teine deploy õnnestus.\
+`Muudatus veebilehe` kolmas deploy õnnestus.
