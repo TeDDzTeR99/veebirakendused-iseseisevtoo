@@ -24,8 +24,26 @@ Private key seadistatud Github Secrets-is.
 ## Probleemid, mis tekkisid ja kuidas lahendasid
 
 >Probleem 1:\
-Nginx seadistamine. Vale port oli upsteami pandud. Pordi 443 asemel tuli panna 80.
+Nginx seadistamine. 
+>>Lahendus:\
+Vale port oli upsteami pandud. Pordi 443 asemel tuli panna 80.
+
+>Probleem 2:\
+Deploy action failed. Server ei lase ligi.
+>>Lahendus:\
+Panime selfhosted runneri käima.
+
+>Probleem 3:\
+Runner on offline.
+>>Lahendus:\
+Konteineri nimi `nging-php-fm` on valesti seadistatud. Peame muutma selle ümber `Static_site`.
+
+>Probleem 4:\
+Static_site annab probleemi serveri lubadega.
+>>Lahendus:
+
 
 ## Deploy testimise tulemus
 
-
+`Readme update` esimene deploy failis. 
+`Readme update` teine deploy
