@@ -25,7 +25,7 @@ jobs:
 
       - name: Verify target container is running
         run: |
-          CONTAINER="Static_Site"
+          CONTAINER="Static_site"
           if ! docker ps --format '{{.Names}}' | grep -qx "$CONTAINER"; then
             echo "ERROR: container '$CONTAINER' is not running"
             exit 1
@@ -34,7 +34,7 @@ jobs:
 
       - name: Update site inside container (git pull)
         run: |
-          CONTAINER="Static_Site"
+          CONTAINER="Static_site"
 
           # Find where the repo lives inside the container by checking common web roots.
           # This avoids guessing the right directory.
