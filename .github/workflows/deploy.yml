@@ -57,6 +57,7 @@ jobs:
 
             git rev-parse --is-inside-work-tree
             git status --porcelain=v1 || true
+            git config --global --add safe.directory /var/www/html
             git pull origin main
           '
 
