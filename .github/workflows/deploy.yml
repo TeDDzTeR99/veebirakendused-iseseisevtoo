@@ -1,22 +1,67 @@
-name: Deploy (update Unraid container)
+name: Deploy (Unraid nginx-php-fpm)
 
 on:
   push:
     branches: [ main ]
 
+# Prevent overlapping deploys if you push multiple times quickly
+concurrency:
+  group: deploy-main
+  cancel-in-progress: true
+
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Use labels so ONLY your Unraid runner picks this up
+    # (labels are matched with AND logic)
+    runs-on: [self-hosted, unraid, docker]
 
     steps:
-      - name: Setup SSH
+      - name: Show runner info
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          echo "Runner name: $RUNNER_NAME"
+          echo "Runner OS/arch: $RUNNER_OS / $RUNNER_ARCH"
+          docker version
+          docker ps --format 'table {{.Names}}\t{{.Status}}\t{{.Image}}'
 
-      - name: Git pull inside container
+      - name: Verify target container is running
         run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "docker exec Static_site sh -lc 'cd /var/www/html 2>/dev/null || cd /usr/share/nginx/html 2>/dev/null || cd /var/www 2>/dev/null; git pull origin main'"
+          CONTAINER="nginx-php-fpm"
+          if ! docker ps --format '{{.Names}}' | grep -qx "$CONTAINER"; then
+            echo "ERROR: container '$CONTAINER' is not running"
+            exit 1
+          fi
+          echo "OK: container '$CONTAINER' is running"
+
+      - name: Update site inside container (git pull)
+        run: |
+          CONTAINER="Static_Site"
+
+          # Find where the repo lives inside the container by checking common web roots.
+          # This avoids guessing the right directory.
+          docker exec "$CONTAINER" sh -lc '
+            set -e
+
+            for d in /var/www/html /var/www /usr/share/nginx/html; do
+              if [ -d "$d/.git" ]; then
+                echo "Found git repo at: $d"
+                cd "$d"
+                break
+              fi
+            done
+
+            if [ ! -d ".git" ]; then
+              echo "ERROR: Could not find a .git directory in expected web roots."
+              echo "Checked: /var/www/html /var/www /usr/share/nginx/html"
+              exit 1
+            fi
+
+            git rev-parse --is-inside-work-tree
+            git status --porcelain=v1 || true
+            git pull origin main
+          '
+
+      - name: Reload nginx (optional)
+        run: |
+          # If nginx supports reload in the container, this applies changes immediately.
+          # If not, it won't fail the deploy.
+          docker exec nginx-php-fpm sh -lc 'nginx -t && nginx -s reload' || true
