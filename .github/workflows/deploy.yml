@@ -4,15 +4,12 @@ on:
   push:
     branches: [ main ]
 
-# Prevent overlapping deploys if you push multiple times quickly
 concurrency:
   group: deploy-main
   cancel-in-progress: true
 
 jobs:
   deploy:
-    # Use labels so ONLY your Unraid runner picks this up
-    # (labels are matched with AND logic)
     runs-on: [self-hosted, unraid, docker]
 
     steps:
@@ -36,8 +33,6 @@ jobs:
         run: |
           CONTAINER="Static_site"
 
-          # Find where the repo lives inside the container by checking common web roots.
-          # This avoids guessing the right directory.
           docker exec "$CONTAINER" sh -lc '
             set -e
 
@@ -55,14 +50,17 @@ jobs:
               exit 1
             fi
 
+            # IMPORTANT: whitelist the repo BEFORE running any git commands
+            git config --global --add safe.directory "$(pwd)"
+
+            # Now git commands are safe
             git rev-parse --is-inside-work-tree
             git status --porcelain=v1 || true
-            git config --global --add safe.directory /var/www/html
             git pull origin main
           '
 
       - name: Reload nginx (optional)
         run: |
-          # If nginx supports reload in the container, this applies changes immediately.
-          # If not, it won't fail the deploy.
-          docker exec nginx-php-fpm sh -lc 'nginx -t && nginx -s reload' || true
+          # Reload nginx inside your actual container, if nginx exists there.
+          # If your container doesn't have nginx binary, this will be ignored.
+          docker exec Static_site sh -lc 'nginx -t && nginx -s reload' || true
