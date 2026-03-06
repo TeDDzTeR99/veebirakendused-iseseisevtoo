@@ -25,7 +25,7 @@ jobs:
 
       - name: Verify target container is running
         run: |
-          CONTAINER="nginx-php-fpm"
+          CONTAINER="Static_Site"
           if ! docker ps --format '{{.Names}}' | grep -qx "$CONTAINER"; then
             echo "ERROR: container '$CONTAINER' is not running"
             exit 1
